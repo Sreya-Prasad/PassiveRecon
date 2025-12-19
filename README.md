@@ -1,6 +1,6 @@
 # PassiveRecon – Passive Information Gathering Tool
 
-## 📌 Overview
+## Overview
 PassiveRecon is a **Python-based passive information gathering tool** developed as part of a cybersecurity learning task.  
 The tool collects **publicly available information** about a given domain without actively scanning or attacking the target.
 
@@ -8,7 +8,7 @@ This project demonstrates the fundamentals of **passive reconnaissance**, which 
 
 ---
 
-## 🎯 Task Objective
+## Task Objective
 Create a passive information gathering tool that can retrieve:
 - Domain IP address
 - WHOIS information
@@ -19,7 +19,7 @@ The project is implemented as a **Python CLI tool** and stored in a GitHub repos
 
 ---
 
-## 🛠️ Features
+## Features
 - Domain to IP resolution
 - WHOIS information lookup
 - DNS record enumeration (A, MX, NS)
@@ -29,14 +29,14 @@ The project is implemented as a **Python CLI tool** and stored in a GitHub repos
 
 ---
 
-## 🖥️ Environment Used
+## Environment Used
 - **Operating System:** Kali Linux
 - **Language:** Python 3
 - **Reason:** Kali Linux uses an externally managed Python environment, so a virtual environment is recommended.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 PassiveRecon/
 ├── src/
 │ └── passiverecon.py
@@ -45,8 +45,24 @@ PassiveRecon/
 └── README.md
 
 ---
+## How to Run / Installation
 
-## 🔐 Virtual Environment Setup (Important)
+Follow these steps to use PassiveRecon on your local machine:
+
+### Step 1: [Clone the Repository](#clone-the-repository)
+### Step 2: [Create a Virtual Environment](#virtual-environment-setup)
+### Step 3: [Install Required Libraries](#install-dependencies)
+### Step 4: [Run the Tool](#usage)
+
+## Clone the Repository
+
+Open your terminal and run:
+```bash
+git clone https://github.com/Sreya_Prasad/PassiveRecon.git
+cd PassiveRecon
+```
+
+## Virtual Environment Setup (Important)
 
 Kali Linux does not allow system-wide Python package installation using `pip`.  
 To avoid breaking system Python, a **virtual environment** is used.
@@ -62,65 +78,70 @@ python3 -m venv venv
 ```
 
 ### Step 3: Activate the virtual environment
+#### Linux / macOS / Kali
 ```bash
 source venv/bin/activate
 ```
+#### Windows
+```bash
+venv\Scripts\activate
+```
 You should see (venv) in the terminal prompt.
 
-## 📦 Install Dependencies
+## Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## ▶️Usage
-Run the tool using:
+## Usage
+
+### Run the tool using:
 ```bash
 python src/passiverecon.py
 ```
-
-Enter a domain when prompted:
+### Enter a domain when prompted:
 ```bash
 Enter domain name (example.com): facebook.com
 ```
+The tool will display:
+- IP address
+- WHOIS information
+- DNS records
+- Subdomains (if publicly available)
 
-## 📊 Sample Output (Example)
+### Notes
+* The virtual environment (venv) is not included in the repository and must be created locally.
+* Subdomain results depend on public availability and may vary per domain.
+* This tool is designed for passive reconnaissance only — it does not actively interact with target servers.
 
-* IP Address: 57.144.56.1
-* WHOIS Information: Domain registration and ownership details
-* DNS Records: A, MX, NS records
-* Subdomains:
+## Sample Output (Example)
+
 ```bash
-www.facebook.com
-mail.facebook.com
-m.facebook.com
+Enter domain: facebook.com
+
+IP Address: 157.240.20.35
+WHOIS: ...
+DNS Records: ...
+Subdomains: www.facebook.com, m.facebook.com, ...
 ```
 (Note: Results may vary due to DNS rotation and public data availability.)
 
-## 🌐 Subdomain Enumeration Explanation
+## Subdomain Enumeration Explanation
 
 Subdomains are discovered passively by checking commonly used subdomain names and resolving them using DNS.
-
 This method:
 * Does not scan ports
 * Does not send intrusive requests
 * Does not violate ethical guidelines
 Some public OSINT sources may block automated requests, so DNS-based discovery ensures reliability for learning and demonstration purposes.
 
-## ⚠️ Known Limitations
-
-* Subdomain results depend on DNS availability
-* Passive sources may block or rate-limit requests
-* Output data may change over time
-These behaviors are normal in real-world reconnaissance.
-
-## 🚧 Future Improvements
+## Future Improvements
 
 * Add multiple passive OSINT sources
 * Save output to a report file
 * Add command-line arguments
 * Improve subdomain enumeration accuracy
 
-## 📜 Disclaimer
+## Disclaimer
 
-This tool is developed for educational purposes only.
-It performs passive reconnaissance using publicly available information and should be used responsibly.
+This project is intended for educational purposes and ethical use only. Do not use this tool for illegal activities. Always have permission before gathering information on a target.
